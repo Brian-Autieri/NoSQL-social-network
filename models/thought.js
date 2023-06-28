@@ -1,25 +1,6 @@
 import { Schema, model, Types } from "mongoose";
 import dateFormat from "../utils/dateFormat";
 
-const ThoughSchema = new Schema({
-  thoughtText: {
-    type: String,
-    required: "You need to leave a thought!",
-    minlength: 1,
-    maxlength: 280,
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-    get: (timestamp) => dateFormat(timestamp),
-  },
-  username: {
-    type: String,
-    required: "You need to enter a username!",
-  },
-  reactions: [ReactionSchema],
-});
-
 const ReactionSchema = new Schema(
   {
     reactionId: {
@@ -52,6 +33,26 @@ const ReactionSchema = new Schema(
     id: false,
   }
 );
+
+const ThoughSchema = new Schema({
+  thoughtText: {
+    type: String,
+    required: "You need to leave a thought!",
+    minlength: 1,
+    maxlength: 280,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+    get: (timestamp) => dateFormat(timestamp),
+  },
+  username: {
+    type: String,
+    required: "You need to enter a username!",
+  },
+  reactions: [ReactionSchema],
+});
+
 ThoughtSchema.virtual("reactionCount").get(function () {
   return this.reactions.length;
 });
