@@ -41,4 +41,4 @@ userSchema.virtual("friendCount").get(function () {
 
 const user = model("user", userSchema);
 
-export default user;
+module.exports = User;

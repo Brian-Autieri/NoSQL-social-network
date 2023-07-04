@@ -1,4 +1,4 @@
-import user from "./user";
-import thought from "./thought";
+import User from "./user";
+import Thought from "./thought";
 
-module.exports = { user, thought };
+module.exports = { User, Thought };

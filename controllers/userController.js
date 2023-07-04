@@ -1,10 +1,10 @@
 const { get } = require("http");
-const { user, thought } = require("../models");
+const { User, Thought } = require("../models");
 
 module.exports = {
   async getAllUsers(req, res) {
     try {
-      const userData = await user.find({});
+      const userData = await User.find({});
       res.status(200).json(userData);
     } catch (err) {
       res.status(500).json(err);
@@ -13,7 +13,7 @@ module.exports = {
 
   async getUserById(req, res) {
     try {
-      const userData = await user
+      const userData = await User
         .fineOne({ _id: req.params.userId })
         .populate("friends")
         .populate("thoughts");
@@ -25,7 +25,7 @@ module.exports = {
 
   async postNewUser(req, res) {
     try {
-      const userData = await user.create(req.body);
+      const userData = await User.create(req.body);
       res.status(201).json(userData);
     } catch (err) {
       res.status(500).json(err);
@@ -34,7 +34,7 @@ module.exports = {
 
   async updateUserById(req, res) {
     try {
-      const userData = await user.findOneAndUpdate(
+      const userData = await User.findOneAndUpdate(
         { _id: req.params.userId },
         { $set: req.body },
         { runValidators: true, new: true }
@@ -51,13 +51,13 @@ module.exports = {
 
   async deleteUserById(req, res) {
     try {
-      const userData = await user.findOneAndDelete({ _id: req.params.userId });
+      const userData = await User.findOneAndDelete({ _id: req.params.userId });
 
       if (!userData) {
         res.status(404).json({ message: "No user found with this id!" });
       }
 
-      await thought.deleteMany({ _id: { $in: userData.thoughts } });
+      await Thought.deleteMany({ _id: { $in: userData.thoughts } });
       res
         .status(204)
         .json({ message: "User and associated thoughts deleted!" });
@@ -68,7 +68,7 @@ module.exports = {
 
   async addFriend(req, res) {
     try {
-      const userData = await user.findOneAndUpdate(
+      const userData = await User.findOneAndUpdate(
         { _id: req.params.userId },
         { $push: { friends: req.params.friendId } },
         { new: true }
@@ -80,7 +80,7 @@ module.exports = {
   },
   async removeFriend(req, res) {
     try {
-      const userData = await user.findOneAndUpdate(
+      const userData = await User.findOneAndUpdate(
         { _id: req.params.userId },
         { $pull: { friends: req.params.friendId } },
         { new: true }
