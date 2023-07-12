@@ -10,7 +10,7 @@ To use this application, clone the repository to your local machine and run `npm
 
 ## Screenshot
 
-![Screenshot](NoSQL-Screenshot.png)
+![Screenshot](NoSQL-screenshot.png)
 
 ## Credits
 
