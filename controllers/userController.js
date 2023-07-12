@@ -1,4 +1,3 @@
-const { get } = require("http");
 const { User, Thought } = require("../models");
 
 module.exports = {
@@ -14,7 +13,7 @@ module.exports = {
   async getUserById(req, res) {
     try {
       const userData = await User
-        .fineOne({ _id: req.params.userId })
+        .findOne({ _id: req.params.userId })
         .populate("friends")
         .populate("thoughts");
       res.status(200).json(userData);
