@@ -4,6 +4,14 @@
 
 This is a social network API built with Express.js, Mongoose, and MongoDB. It allows users to create accounts, add friends, share thoughts, and react to thoughts.
 
+## Usage
+
+To use this application, clone the repository to your local machine and run `npm install` to install the dependencies. Then, run `npm start` to start the server. You can then use Insomnia Core to test the API routes.
+
+## Screenshot
+
+![Screenshot](NoSQL-Screenshot.png)
+
 ## Credits
 
 This challenge was completed in collaboration with the instructional staff (Diarmuid Murphy), TA/tutor (Meg Meyers) and classmates in the February 2023 UCLA Extension Coding Bootcamp.
