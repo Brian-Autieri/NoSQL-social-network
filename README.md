@@ -8,6 +8,8 @@ This is a social network API built with Express.js, Mongoose, and MongoDB. It al
 
 To use this application, clone the repository to your local machine and run `npm install` to install the dependencies. Then, run `npm start` to start the server. You can then use Insomnia Core to test the API routes.
 
+## Walkthrough Video
+
 ## Screenshot
 
 ![Screenshot](NoSQL-screenshot.png)
