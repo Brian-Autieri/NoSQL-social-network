@@ -12,7 +12,7 @@ const {
 router.route("/").get(getAllUsers).post(postNewUser);
 
 router
-  .route("/:id")
+  .route("/:userId")
   .get(getUserById)
   .put(updateUserById)
   .delete(deleteUserById);
