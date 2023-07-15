@@ -10,6 +10,8 @@ To use this application, clone the repository to your local machine and run `npm
 
 ## Walkthrough Video
 
+https://watch.screencastify.com/v/aqc3tl63MA05Dfmc8c58
+
 ## Screenshot
 
 ![Screenshot](NoSQL-screenshot.png)
